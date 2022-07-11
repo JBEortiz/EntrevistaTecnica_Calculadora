@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.juan.calculator.service.CalculatorService;
 
+import io.corp.calculator.TracerImpl;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -17,6 +18,8 @@ import lombok.RequiredArgsConstructor;
 public class CalculatorController {
 	
 	private final CalculatorService service;
+	
+	private final TracerImpl tracerImpl= new TracerImpl();
 	
 	/*
 	 * Method in charge of making the receive data by parameter for the sum
@@ -29,6 +32,7 @@ public class CalculatorController {
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSum(@PathVariable double valueOne,
 			@PathVariable double valueTwo) {
+		tracerImpl.trace(service.sumTwoNumbers(valueOne,valueTwo));
 		return service.sumTwoNumbers(valueOne,valueTwo);
 	}
 	
@@ -43,6 +47,7 @@ public class CalculatorController {
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSubtract(@PathVariable double valueOne,
 			@PathVariable double valueTwo) {
+		tracerImpl.trace(service.subtractTwoNumbers(valueOne,valueTwo));
 		return service.subtractTwoNumbers(valueOne,valueTwo);
 	}
 	
