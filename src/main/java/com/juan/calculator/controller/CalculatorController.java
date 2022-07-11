@@ -18,7 +18,13 @@ public class CalculatorController {
 	
 	private final CalculatorService service;
 	
-	
+	/*
+	 * Method in charge of making the receive data by parameter for the sum
+	 * @param valueOne double
+	 * @param valueTwo double
+	 * 
+	 * @return double
+	 */
 	@PutMapping("/sum/{valueOne}/{valueTwo}")
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSum(@PathVariable double valueOne,
@@ -26,6 +32,13 @@ public class CalculatorController {
 		return service.sumTwoNumbers(valueOne,valueTwo);
 	}
 	
+	/*
+	 * Method in charge of making the receive data by parameter for the subtraction
+	 * @param valueOne double
+	 * @param valueTwo double
+	 * 
+	 * @return double
+	 */
 	@PutMapping("/subtract/{valueOne}/{valueTwo}")
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSubtract(@PathVariable double valueOne,
