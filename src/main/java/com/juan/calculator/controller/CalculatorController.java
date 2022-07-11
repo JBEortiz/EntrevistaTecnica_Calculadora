@@ -1,8 +1,8 @@
 package com.juan.calculator.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CalculatorController {
 	
-	private final CalculatorService service;
+	private final CalculatorService calculatorService;
 	
 	private final TracerImpl tracerImpl= new TracerImpl();
 	
@@ -28,12 +28,12 @@ public class CalculatorController {
 	 * 
 	 * @return double
 	 */
-	@PutMapping("/sum/{valueOne}/{valueTwo}")
+	@GetMapping("/sum/{valueOne}/{valueTwo}")
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSum(@PathVariable double valueOne,
 			@PathVariable double valueTwo) {
-		tracerImpl.trace(service.sumTwoNumbers(valueOne,valueTwo));
-		return service.sumTwoNumbers(valueOne,valueTwo);
+		tracerImpl.trace(calculatorService.sumTwoNumbers(valueOne,valueTwo));
+		return calculatorService.sumTwoNumbers(valueOne,valueTwo);
 	}
 	
 	/*
@@ -43,12 +43,12 @@ public class CalculatorController {
 	 * 
 	 * @return double
 	 */
-	@PutMapping("/subtract/{valueOne}/{valueTwo}")
+	@GetMapping("/subtract/{valueOne}/{valueTwo}")
 	@ResponseStatus(HttpStatus.OK)
 	public double calculateSubtract(@PathVariable double valueOne,
 			@PathVariable double valueTwo) {
-		tracerImpl.trace(service.subtractTwoNumbers(valueOne,valueTwo));
-		return service.subtractTwoNumbers(valueOne,valueTwo);
+		tracerImpl.trace(calculatorService.subtractTwoNumbers(valueOne,valueTwo));
+		return calculatorService.subtractTwoNumbers(valueOne,valueTwo);
 	}
 	
 	
