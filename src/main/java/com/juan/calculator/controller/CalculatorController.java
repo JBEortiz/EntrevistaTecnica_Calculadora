@@ -1,19 +1,20 @@
 package com.juan.calculator.controller;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.juan.calculator.service.CalculatorService;
 
 import io.corp.calculator.TracerImpl;
 import lombok.RequiredArgsConstructor;
-
+@Validated
 @RestController
-@RequestMapping("/calculator")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class CalculatorController {
 	
@@ -28,28 +29,15 @@ public class CalculatorController {
 	 * 
 	 * @return double
 	 */
-	@GetMapping("/sum/{valueOne}/{valueTwo}")
-	@ResponseStatus(HttpStatus.OK)
-	public double calculateSum(@PathVariable double valueOne,
-			@PathVariable double valueTwo) {
-		tracerImpl.trace(calculatorService.sumTwoNumbers(valueOne,valueTwo));
-		return calculatorService.sumTwoNumbers(valueOne,valueTwo);
+	@GetMapping("/calculate/{valueOne}/{operator}/{valueTwo}")
+	public ResponseEntity<Double> calculate(@RequestParam(required = true) Double valueOne,@RequestParam(required = true) String operator, 
+			@RequestParam(required = true) Double valueTwo) {
+		
+		tracerImpl.trace(calculatorService.operation(valueOne, operator, valueTwo));
+		Double result=calculatorService.operation(valueOne, operator, valueTwo);
+		return ResponseEntity.ok(result);
 	}
 	
-	/*
-	 * Method in charge of making the receive data by parameter for the subtraction
-	 * @param valueOne double
-	 * @param valueTwo double
-	 * 
-	 * @return double
-	 */
-	@GetMapping("/subtract/{valueOne}/{valueTwo}")
-	@ResponseStatus(HttpStatus.OK)
-	public double calculateSubtract(@PathVariable double valueOne,
-			@PathVariable double valueTwo) {
-		tracerImpl.trace(calculatorService.subtractTwoNumbers(valueOne,valueTwo));
-		return calculatorService.subtractTwoNumbers(valueOne,valueTwo);
-	}
 	
 	
 

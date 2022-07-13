@@ -2,9 +2,10 @@ package com.juan.calculator.service;
 
 public interface CalculatorService {
 
-	double sumTwoNumbers(double valueOne, double valueTwo);
+	Double operation(Double valueOne, String operator, 
+			Double valueTwo);
 
-	double subtractTwoNumbers(double valueOne, double valueTwo);
+
 	
 
 }
