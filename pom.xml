@@ -23,21 +23,21 @@
 			<artifactId>tracer</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/juanj/.m2/repository/tracer-1.0.0-soces.jar</systemPath>
+			<systemPath>C:/Users/juanj/ProyectoFinal/TechnicalInterview/EntrevistaTecnica_Calculadora/tracer/tracer-1.0.0-soces.jar</systemPath>
 		</dependency>
 	<dependency>
 			<groupId>io.corp.calculator</groupId>
 			<artifactId>tracer</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/juanj/.m2/repository/tracer-1.0.0-javadoc.jar</systemPath>
+			<systemPath>C:/Users/juanj/ProyectoFinal/TechnicalInterview/EntrevistaTecnica_Calculadora/tracer/tracer-1.0.0-javadoc.jar</systemPath>
 		</dependency>
 	<dependency>
 			<groupId>io.corp.calculator</groupId>
 			<artifactId>tracer</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/juanj/.m2/repository/tracer-1.0.0.jar</systemPath>
+			<systemPath>C:/Users/juanj/ProyectoFinal/TechnicalInterview/EntrevistaTecnica_Calculadora/tracer/tracer-1.0.0.jar</systemPath>
 		</dependency>
 	<dependency>
 			<groupId>io.springfox</groupId>
