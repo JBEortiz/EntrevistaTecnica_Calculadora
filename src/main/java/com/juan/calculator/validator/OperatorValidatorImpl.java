@@ -1,9 +1,9 @@
-package com.juan.calculator.controller.validator;
+package com.juan.calculator.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class OperatorValidatorImpl implements ConstraintValidator<CheckOperator, String> {
+public class OperatorValidatorImpl implements ConstraintValidator<CheckOperatorValidator, String> {
 
 	@Override
 	public boolean isValid(String operator, ConstraintValidatorContext context) {
