@@ -26,12 +26,6 @@ public class CalculatorServiceImpl implements CalculatorService{
 		case "+":
 			result= valueOne+valueTwo;
 			break;
-		case "/":
-			result= valueOne/valueTwo;
-			break;
-		case "x":
-			result= valueOne*valueTwo; 
-			break;
 		}
 		
 		return result;
